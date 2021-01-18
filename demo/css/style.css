@@ -1,0 +1,465 @@
+@charset "UTF-8";
+/*--------------------
+base
+---------------------*/
+html{
+    font-size: 62.5%;
+}
+body{
+    background: #000827;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    color: #f4f4f4;
+}
+a{
+    color: #f4f4f4;
+    text-decoration: none;
+    transition: all .2s;    
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+}
+img{
+    max-width:100%;
+    height:auto;
+}
+li{
+    list-style: none;
+}
+/*--------------------
+parts
+---------------------*/
+.text-center{
+    text-align:center;
+}
+
+
+.pc{
+    display: block;
+}
+
+.sp{
+    display: none;
+}
+
+.wrapper{
+    width: calc(100% - 32px * 2);
+    margin: 0 auto;
+}
+
+@media screen and (min-width:960px){
+    .wrapper{
+        width: calc(100% - 64px * 2);
+        max-width: 1200px;
+    }
+}
+
+.font-size_SS{
+    font-size: 1.4rem;
+}
+
+.font-size_S{
+    font-size: 1.8rem;
+}
+
+.font-size_M{
+    font-size: 3.2rem;
+}
+
+/*-------------------
+
+loading
+
+---------------------*/
+
+
+div#loading {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #060062;
+    z-index: 100;
+}
+div#loading > div {
+    width: 50px;
+    height: 30px;
+    background: rgb(230, 232, 235);
+    z-index: 101;
+}
+
+@media screen and (min-width:960px){
+    div#loading > div {
+        width: 70px;
+        height: 100px;
+    }
+}
+
+/*-------------------
+
+fadein
+
+---------------------*/
+
+.fadein {
+    opacity : 0;
+    transform : translate(0, 70px);
+    transition:all 1s;
+}
+
+.fadein_left{
+    opacity : 0;
+    transform : translateX(32px);
+    transition:all 1s;
+}
+
+.fadein_right{
+    opacity : 0;
+    transform : translateX(-32px);
+    transition:all 1s;
+}
+
+.fadein.scrollin {
+    opacity : 1;
+    transform : translate(0, 0);
+}
+
+.fadein_left.scrollin {
+    opacity : 1;
+    transform : translateX(0);
+}
+
+.fadein_right.scrollin {
+    opacity : 1;
+    transform : translateX(0);
+}
+
+@media screen and (min-width:960px){
+    .fadein_left{
+        opacity : 0;
+        transform : translateX(64px);
+        transition:all 1s;
+    }
+    
+    .fadein_right{
+        opacity : 0;
+        transform : translateX(-64px);
+        transition:all 1s;
+    }
+    
+}
+
+/*-------------------
+
+header,nav,footer
+
+---------------------*/
+
+.maintitle{
+    position: absolute;
+    top: 20px;
+    left: 16px;
+    z-index: 11;
+}
+.home_logo{
+    width: 50px;
+    position: fixed;
+}
+
+.home_icon{
+    width: 36px;
+}
+
+.mainvisual{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(6, 0, 82, 1), rgba(2, 13, 53, 0.7));
+}
+
+.mainvisual .inner{
+    width: calc(100% - 32px * 2);
+    max-width: initial;
+    height: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width:960px){
+    .mainvisual .inner{
+        width: calc(100% - 64px * 2);
+        max-width: 1200px;
+    }
+
+    .maintitle{
+        top: 36px;
+        left: 64px;
+    }
+    
+
+    .home_logo{
+        width: 100px;
+    }
+    
+}
+
+/*--------------------
+mainvisual
+---------------------*/
+.mainvisual::before{
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    width: 75%;
+    height: 90vh;
+    content: '';
+    background: url(../img/main.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50px 0 0 50px;
+}
+
+.mainvisual_text{
+    position: absolute;
+    z-index: 7;
+    bottom: 230px;
+}
+
+.ex1 {
+    letter-spacing: 0.3em;
+    line-height: 2;
+    position: absolute;
+    bottom: 30%;
+    text-align: center;
+    width: 100%;
+    font-weight: 800;
+    color: #f4f4f4;
+    opacity: 0;
+  }
+
+  p.desc {
+    padding: 1rem;
+    font-size: 1rem;
+    letter-spacing: .2rem;
+    opacity: 0;
+    transition: 1.5s 2s;
+  }
+
+  .ex1 span {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    opacity: 0;
+  }
+
+/* ハンバーガーメニュー */
+.hamburger {
+    display : block;
+    position: fixed;
+    z-index : 11;
+    right : 16px;
+    top   : 32px;
+    width : 42px;
+    height: 42px;
+    cursor: pointer;
+    text-align: center;
+}
+.hamburger span {
+    display : block;
+    position: absolute;
+    width   : 30px;
+    height  : 2px ;
+    left    : 6px;
+    background : #f4f4f4;
+    -webkit-transition: 0.5s all;
+    -moz-transition   : 0.5s all;
+    transition        : 0.5s all;
+}
+.hamburger span:nth-child(1) {
+    top: 10px;
+}
+.hamburger span:nth-child(2) {
+    top: 20px;
+}
+.hamburger span:nth-child(3) {
+    top: 30px;
+}
+
+/* ナビ開いてる時のボタン */
+
+.hamburger.active span:nth-child(1) {
+    top : 16px;
+    left: 6px;
+    width: 24px;
+    background : #fff;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform   : rotate(-45deg);
+    transform        : rotate(-45deg);
+}
+.hamburger.active span:nth-child(2) {
+    left: 60%;
+    opacity: 0;
+    -webkit-animation: active-btn17-bar02 .8s forwards;
+    animation: active-hamburger-bar02 .8s forwards;
+}
+
+@-webkit-keyframes active-hamburger-bar02 {
+    100% {
+    height: 0;
+    }
+}
+@keyframes active-hamburger-bar02 {
+    100% {
+    height: 0;
+    }
+}
+.hamburger.active span:nth-child(3) {
+    top: 16px;
+    width: 24px;
+    background : #fff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform   : rotate(45deg);
+    transform        : rotate(45deg);
+}
+
+.hamburger::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    content: '';
+    width: 52px;
+    height: 52px;
+    margin: -32px 0 0 -32px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0);
+    transition: all .75s;
+}
+.hamburger.active::after {
+    border: 2px solid #fff;
+}
+
+nav.globalMenuSp {
+    position: fixed;
+    z-index : 10;
+    top  : 0;
+    left : 0;
+    color: #fff;
+    background: rgba(13,13,13,.9);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s ease, visibility .6s ease;
+    letter-spacing: 0.1em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+}
+
+nav.globalMenuSp ul {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+nav.globalMenuSp ul li {
+    list-style-type: none;
+    padding: 16px 0;
+    width: 100%;
+    transition: .4s all;
+}
+nav.globalMenuSp ul li:last-child {
+    padding-bottom: 0;
+}
+
+nav.globalMenuSp ul li a {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: .5em;
+    color: #fff;
+    padding: 0.8em 1em;
+    text-decoration :none;
+}
+
+nav.globalMenuSp ul li a::before,
+nav.globalMenuSp ul li a::before
+{
+    font-size: 64px;
+    position: absolute;
+    z-index: -5;
+    bottom: 10px;
+    right: 0;
+    visibility: hidden;
+    content: attr(title);
+    -webkit-transition: .5s;
+    transition: .5s;
+    letter-spacing: .13em;
+    opacity: 0;
+    color: rgba(245, 245, 245, .4);
+}
+
+nav.globalMenuSp ul li a:hover
+{
+    opacity: .8;
+}
+
+nav.globalMenuSp ul li a:hover::before,
+nav.globalMenuSp ul li a:hover::before
+{
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav_icon{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/* このクラスを、jQueryで付与・削除する */
+nav.globalMenuSp.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+@media screen and (min-width:960px){
+    .hamburger {
+        top: 60px;
+        right: 64px;
+    }
+
+    .ex1 {
+        font-size: 6.4rem;
+    }
+
+    nav.globalMenuSp ul li a {
+        font-size: 3rem;
+    }
+
+    nav.globalMenuSp ul li a::before,
+    nav.globalMenuSp ul li a::before{
+        font-size: 140px;
+    }
+}
+
